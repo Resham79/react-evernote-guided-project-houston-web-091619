@@ -1,10 +1,14 @@
 import React from 'react';
 
+function truncate(str) {
+  return str.length > 10 ? str.substring(0, 12) + "..." : str;
+}
+
 const NoteItem = (props) => (
-  <li>
-    <h2>Title</h2>
-    <p>Caption...</p>
-  </li>
+  <li onClick = {() => props.selectNote(props.note)}>
+    <h2>{props.note.title}</h2>
+    <p>{truncate(props.note.body)}</p>
+  </li> 
 );
 
 export default NoteItem;
